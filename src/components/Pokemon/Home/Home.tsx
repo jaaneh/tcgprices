@@ -116,7 +116,7 @@ const PokemonHomeView = ({ sets }) => {
                   {set.name}
                 </Text>
                 <Text color='gray.500' isTruncated>
-                  18 kort
+                  {set.total} cards
                 </Text>
               </Box>
             </Box>

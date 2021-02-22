@@ -8,6 +8,8 @@ import { ICustomPokemonSet } from '@interfaces'
 import { series } from '@data/pokemon/series.json'
 
 const PokemonSetsPage = () => {
+  series.reverse()
+
   return (
     <Layout>
       <Container maxW='7xl' mt={8}>
@@ -20,7 +22,7 @@ const PokemonSetsPage = () => {
               {sets[0].series}
             </Heading>
             <SimpleGrid columns={{ sm: 2, md: 3, xl: 4 }} gap={6} py={6}>
-              <PokemonHomeSeriesView sets={sets} />
+              <PokemonHomeSeriesView sets={sets.reverse()} />
             </SimpleGrid>
           </React.Fragment>
         ))}
