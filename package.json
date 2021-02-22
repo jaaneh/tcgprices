@@ -1,0 +1,35 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "author": "Jan Henning",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^1.1.0",
+    "@chakra-ui/theme-tools": "^1.0.0",
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
+    "@prisma/client": "^2.14.0",
+    "axios": "^0.21.1",
+    "framer-motion": "^3.1.4",
+    "next": "^10.0.4",
+    "next-auth": "^3.2.0-canary.23",
+    "querystring": "^0.2.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
+    "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.14.0",
+    "@types/axios": "^0.14.0",
+    "@types/node": "^14.14.19",
+    "@types/react": "^16.14.2",
+    "@types/react-dom": "^16.9.10",
+    "@types/redis": "^2.8.28",
+    "typescript": "^4.0.5"
+  }
+}

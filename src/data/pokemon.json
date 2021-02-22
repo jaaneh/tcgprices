@@ -1,0 +1,632 @@
+{
+  "pokemonSets": [
+    {
+      "name": "swsh05-battle-styles",
+      "setId": 2765
+    },
+    {
+      "name": "first-partner-pack",
+      "setId": 2776
+    },
+    {
+      "name": "shining-fates",
+      "setId": 2754
+    },
+    {
+      "name": "shining-fates-shiny-vault",
+      "setId": 2781
+    },
+    {
+      "name": "swsh04-vivid-voltage",
+      "setId": 2701
+    },
+    {
+      "name": "champions-path",
+      "setId": 2685
+    },
+    {
+      "name": "swsh03-darkness-ablaze",
+      "setId": 2675
+    },
+    {
+      "name": "battle-academy",
+      "setId": 2686
+    },
+    {
+      "name": "swsh02-rebel-clash",
+      "setId": 2626
+    },
+    {
+      "name": "swsh01-sword-shield-base-set",
+      "setId": 2585
+    },
+    {
+      "name": "swsh-sword-shield-promo-cards",
+      "setId": 2545
+    },
+    {
+      "name": "sm-cosmic-eclipse",
+      "setId": 2534
+    },
+    {
+      "name": "mcdonalds-promos-2019",
+      "setId": 2555
+    },
+    {
+      "name": "hidden-fates",
+      "setId": 2480
+    },
+    {
+      "name": "hidden-fates-shiny-vault",
+      "setId": 2594
+    },
+    {
+      "name": "sm-unified-minds",
+      "setId": 2464
+    },
+    {
+      "name": "sm-unbroken-bonds",
+      "setId": 2420
+    },
+    {
+      "name": "detective-pikachu",
+      "setId": 2409
+    },
+    {
+      "name": "sm-team-up",
+      "setId": 2377
+    },
+    {
+      "name": "sm-lost-thunder",
+      "setId": 2328
+    },
+    {
+      "name": "mcdonalds-promos-2018",
+      "setId": 2364
+    },
+    {
+      "name": "miscellaneous-cards-products",
+      "setId": 2374
+    },
+    {
+      "name": "dragon-majesty",
+      "setId": 2295
+    },
+    {
+      "name": "sm-celestial-storm",
+      "setId": 2278
+    },
+    {
+      "name": "world-championship-decks",
+      "setId": 2282
+    },
+    {
+      "name": "sm-forbidden-light",
+      "setId": 2209
+    },
+    {
+      "name": "sm-trainer-kit-alolan-sandslash-alolan-ninetales",
+      "setId": 2208
+    },
+    {
+      "name": "sm-ultra-prism",
+      "setId": 2178
+    },
+    {
+      "name": "mcdonalds-promos-2017",
+      "setId": 2148
+    },
+    {
+      "name": "sm-crimson-invasion",
+      "setId": 2071
+    },
+    {
+      "name": "shining-legends",
+      "setId": 2054
+    },
+    {
+      "name": "sm-burning-shadows",
+      "setId": 1957
+    },
+    {
+      "name": "alternate-art-promos",
+      "setId": 1938
+    },
+    {
+      "name": "sm-guardians-rising",
+      "setId": 1919
+    },
+    {
+      "name": "sm-trainer-kit-lycanroc-alolan-raichu",
+      "setId": 2069
+    },
+    {
+      "name": "sm-base-set",
+      "setId": 1863
+    },
+    {
+      "name": "sm-promos",
+      "setId": 1861
+    },
+    {
+      "name": "xy-evolutions",
+      "setId": 1842
+    },
+    {
+      "name": "deck-exclusives",
+      "setId": 1840
+    },
+    {
+      "name": "xy-steam-siege",
+      "setId": 1815
+    },
+    {
+      "name": "league-championship-cards",
+      "setId": 1539
+    },
+    {
+      "name": "xy-fates-collide",
+      "setId": 1780
+    },
+    {
+      "name": "xy-trainer-kit-pikachu-libre-suicune",
+      "setId": 1796
+    },
+    {
+      "name": "generations",
+      "setId": 1728
+    },
+    {
+      "name": "generations-radiant-collection",
+      "setId": 1729
+    },
+    {
+      "name": "xy-breakpoint",
+      "setId": 1701
+    },
+    {
+      "name": "mcdonalds-promos-2015",
+      "setId": 1694
+    },
+    {
+      "name": "xy-breakthrough",
+      "setId": 1661
+    },
+    {
+      "name": "xy-ancient-origins",
+      "setId": 1576
+    },
+    {
+      "name": "xy-roaring-skies",
+      "setId": 1534
+    },
+    {
+      "name": "xy-trainer-kit-latias-latios",
+      "setId": 1536
+    },
+    {
+      "name": "jumbo-cards",
+      "setId": 1528
+    },
+    {
+      "name": "double-crisis",
+      "setId": 1525
+    },
+    {
+      "name": "xy-primal-clash",
+      "setId": 1509
+    },
+    {
+      "name": "xy-trainer-kit-bisharp-wigglytuff",
+      "setId": 1533
+    },
+    {
+      "name": "xy-phantom-forces",
+      "setId": 1494
+    },
+    {
+      "name": "xy-furious-fists",
+      "setId": 1481
+    },
+    {
+      "name": "mcdonalds-promos-2014",
+      "setId": 1692
+    },
+    {
+      "name": "xy-flashfire",
+      "setId": 1464
+    },
+    {
+      "name": "xy-trainer-kit-sylveon-noivern",
+      "setId": 1532
+    },
+    {
+      "name": "xy-base-set",
+      "setId": 1387
+    },
+    {
+      "name": "xy-promos",
+      "setId": 1451
+    },
+    {
+      "name": "legendary-treasures",
+      "setId": 1409
+    },
+    {
+      "name": "legendary-treasures-radiant-collection",
+      "setId": 1465
+    },
+    {
+      "name": "plasma-blast",
+      "setId": 1370
+    },
+    {
+      "name": "plasma-freeze",
+      "setId": 1382
+    },
+    {
+      "name": "plasma-storm",
+      "setId": 1413
+    },
+    {
+      "name": "boundaries-crossed",
+      "setId": 1408
+    },
+    {
+      "name": "dragons-exalted",
+      "setId": 1394
+    },
+    {
+      "name": "dark-explorers",
+      "setId": 1386
+    },
+    {
+      "name": "noble-victories",
+      "setId": 1385
+    },
+    {
+      "name": "bw-trainer-kit-excadrill-zoroark",
+      "setId": 1538
+    },
+    {
+      "name": "emerging-powers",
+      "setId": 1424
+    },
+    {
+      "name": "black-and-white",
+      "setId": 1400
+    },
+    {
+      "name": "call-of-legends",
+      "setId": 1415
+    },
+    {
+      "name": "professor-program-promos",
+      "setId": 2332
+    },
+    {
+      "name": "triumphant",
+      "setId": 1381
+    },
+    {
+      "name": "undaunted",
+      "setId": 1403
+    },
+    {
+      "name": "pikachu-world-collection-promos",
+      "setId": 2205
+    },
+    {
+      "name": "unleashed",
+      "setId": 1399
+    },
+    {
+      "name": "hgss-promos",
+      "setId": 1453
+    },
+    {
+      "name": "arceus",
+      "setId": 1391
+    },
+    {
+      "name": "supreme-victors",
+      "setId": 1384
+    },
+    {
+      "name": "burger-king-promos",
+      "setId": 2175
+    },
+    {
+      "name": "countdown-calendar-promos",
+      "setId": 2155
+    },
+    {
+      "name": "legends-awakened",
+      "setId": 1417
+    },
+    {
+      "name": "great-encounters",
+      "setId": 1405
+    },
+    {
+      "name": "dp-trainer-kit-manaphy-lucario",
+      "setId": 1541
+    },
+    {
+      "name": "diamond-and-pearl",
+      "setId": 1430
+    },
+    {
+      "name": "diamond-and-pearl-promos",
+      "setId": 1421
+    },
+    {
+      "name": "dragon-frontiers",
+      "setId": 1411
+    },
+    {
+      "name": "crystal-guardians",
+      "setId": 1395
+    },
+    {
+      "name": "delta-species",
+      "setId": 1429
+    },
+    {
+      "name": "unseen-forces",
+      "setId": 1398
+    },
+    {
+      "name": "emerald",
+      "setId": 1410
+    },
+    {
+      "name": "deoxys",
+      "setId": 1404
+    },
+    {
+      "name": "ex-battle-stadium",
+      "setId": 1853
+    },
+    {
+      "name": "kids-wb-promos",
+      "setId": 2214
+    },
+    {
+      "name": "team-magma-vs-team-aqua",
+      "setId": 1377
+    },
+    {
+      "name": "dragon",
+      "setId": 1376
+    },
+    {
+      "name": "aquapolis",
+      "setId": 1397
+    },
+    {
+      "name": "best-of-promos",
+      "setId": 1455
+    },
+    {
+      "name": "team-rocket",
+      "setId": 1373
+    },
+    {
+      "name": "fossil",
+      "setId": 630
+    },
+    {
+      "name": "wotc-promo",
+      "setId": 1418
+    },
+    {
+      "name": "blister-exclusives",
+      "setId": 2289
+    },
+    {
+      "name": "base-set",
+      "setId": 604
+    },
+    {
+      "name": "base-set-shadowless",
+      "setId": 1663
+    },
+    {
+      "name": "base-set-2",
+      "setId": 605
+    },
+    {
+      "name": "black-and-white-promos",
+      "setId": 1407
+    },
+    {
+      "name": "dp-training-kit-1-blue",
+      "setId": 609
+    },
+    {
+      "name": "dp-training-kit-1-gold",
+      "setId": 610
+    },
+    {
+      "name": "dragon-vault",
+      "setId": 1426
+    },
+    {
+      "name": "ex-trainer-kit-1-latias-latios",
+      "setId": 1543
+    },
+    {
+      "name": "ex-trainer-kit-2-plusle-minun",
+      "setId": 1542
+    },
+    {
+      "name": "expedition",
+      "setId": 1375
+    },
+    {
+      "name": "firered-leafgreen",
+      "setId": 1419
+    },
+    {
+      "name": "gym-challenge",
+      "setId": 1440
+    },
+    {
+      "name": "gym-heroes",
+      "setId": 1441
+    },
+    {
+      "name": "heartgold-soulsilver",
+      "setId": 1402
+    },
+    {
+      "name": "hgss-trainer-kit-gyarados-raichu",
+      "setId": 1540
+    },
+    {
+      "name": "hidden-legends",
+      "setId": 1416
+    },
+    {
+      "name": "holon-phantoms",
+      "setId": 1379
+    },
+    {
+      "name": "jungle",
+      "setId": 635
+    },
+    {
+      "name": "kalos-starter-set",
+      "setId": 1522
+    },
+    {
+      "name": "legend-maker",
+      "setId": 1378
+    },
+    {
+      "name": "legendary-collection",
+      "setId": 1374
+    },
+    {
+      "name": "majestic-dawn",
+      "setId": 1390
+    },
+    {
+      "name": "mcdonalds-promos-2011",
+      "setId": 1401
+    },
+    {
+      "name": "mcdonalds-promos-2012",
+      "setId": 1427
+    },
+    {
+      "name": "mysterious-treasures",
+      "setId": 1368
+    },
+    {
+      "name": "neo-destiny",
+      "setId": 1444
+    },
+    {
+      "name": "neo-discovery",
+      "setId": 1434
+    },
+    {
+      "name": "neo-genesis",
+      "setId": 1396
+    },
+    {
+      "name": "neo-revelation",
+      "setId": 1389
+    },
+    {
+      "name": "next-destinies",
+      "setId": 1412
+    },
+    {
+      "name": "nintendo-promos",
+      "setId": 1423
+    },
+    {
+      "name": "platinum",
+      "setId": 1406
+    },
+    {
+      "name": "pop-series-1",
+      "setId": 1422
+    },
+    {
+      "name": "pop-series-2",
+      "setId": 1447
+    },
+    {
+      "name": "pop-series-3",
+      "setId": 1442
+    },
+    {
+      "name": "pop-series-4",
+      "setId": 1452
+    },
+    {
+      "name": "pop-series-5",
+      "setId": 1439
+    },
+    {
+      "name": "pop-series-6",
+      "setId": 1432
+    },
+    {
+      "name": "pop-series-7",
+      "setId": 1414
+    },
+    {
+      "name": "pop-series-8",
+      "setId": 1450
+    },
+    {
+      "name": "pop-series-9",
+      "setId": 1446
+    },
+    {
+      "name": "power-keepers",
+      "setId": 1383
+    },
+    {
+      "name": "rising-rivals",
+      "setId": 1367
+    },
+    {
+      "name": "ruby-and-sapphire",
+      "setId": 1393
+    },
+    {
+      "name": "rumble",
+      "setId": 1433
+    },
+    {
+      "name": "sandstorm",
+      "setId": 1392
+    },
+    {
+      "name": "secret-wonders",
+      "setId": 1380
+    },
+    {
+      "name": "skyridge",
+      "setId": 1372
+    },
+    {
+      "name": "southern-islands",
+      "setId": 648
+    },
+    {
+      "name": "stormfront",
+      "setId": 1369
+    },
+    {
+      "name": "team-rocket-returns",
+      "setId": 1428
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+export { NextChakraLink } from './NextChakraLink'
