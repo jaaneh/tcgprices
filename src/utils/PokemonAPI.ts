@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from 'axios'
-import querystring from 'querystring'
 import { PokemonSetIds } from '@interfaces'
 
 const BASE_URL: string = 'https://api.pokemontcg.io/v2'

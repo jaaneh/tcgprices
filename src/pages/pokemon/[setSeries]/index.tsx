@@ -55,6 +55,7 @@ const PokemonSetName = ({ sets }: { sets: ICustomPokemonSet[] }) => {
                       layout='responsive'
                       width={100}
                       height={40}
+                      loading='eager'
                     />
                   </Box>
                 </Box>

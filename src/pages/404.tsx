@@ -16,3 +16,13 @@ const Custom404 = () => {
 }
 
 export default Custom404
+
+export async function getStaticProps() {
+  return {
+    props: {},
+    redirect: {
+      destination: '/',
+      permanent: true
+    }
+  }
+}

@@ -7,6 +7,11 @@ module.exports = {
     autoPrerender: false
   },
   images: {
-    domains: ['tcgplayer-cdn.tcgplayer.com', 'images.pokemontcg.io']
+    domains: [
+      'tcgplayer-cdn.tcgplayer.com',
+      'images.pokemontcg.io',
+      'pbs.twimg.com',
+      'static-cdn.jtvnw.net'
+    ]
   }
 }

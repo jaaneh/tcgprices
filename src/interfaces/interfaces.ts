@@ -1,11 +1,18 @@
+import { Document } from 'mongoose'
+
+// ======================
 export interface IResponse {
   success: boolean
-  data?: object
-  error?: object
+  data?: {
+    [key: string]: any
+  }
+  error?: {
+    [key: string]: any
+  }
 }
 
-export type StrBool = string | boolean
-export type StrNum = string | number
+export type IStrBool = string | boolean
+export type IStrNum = string | number
 
 export interface ITCGAPI {
   [key: string]: any
@@ -13,6 +20,17 @@ export interface ITCGAPI {
 
 export interface ICache {
   [key: string]: any
+}
+
+export interface IJoiError {
+  context: {
+    label: string
+    value: string
+    key: string
+  }
+  message: string
+  path: string[]
+  type: string
 }
 
 export interface IGameSelection {
@@ -97,11 +115,11 @@ interface IPokemonCardImages {
 }
 
 interface IPokemonCardTCGPrices {
-  low: number
-  mid: number
-  high: number
-  market: number
-  directLow: number
+  low: number | null
+  mid: number | null
+  high: number | null
+  market: number | null
+  directLow: number | null
 }
 
 interface IPokemonCardTCGPlayer {
@@ -239,6 +257,41 @@ export type PokemonSetIds =
   | 'swsh35'
   | 'swshp'
   | 'swsh4'
+  | 'swsh45'
+  | 'swsh45sv'
+  | 'swsh5'
   | 'mcd11'
   | 'mcd12'
   | 'mcd16'
+
+// Databse models
+export interface IMongoUserModel extends Document {
+  uuid: string
+  username: string
+  email: string
+  password: string
+  signed_up: number
+  last_signin: number
+  permissions: string
+  images: {
+    profile_picture: string
+  }
+}
+
+export interface IMongoSavedCardsModel extends Document {
+  collection_id: string
+  cards: [
+    {
+      id: string
+      name: string
+      number: string
+      path: string
+      set: IPokemonSet
+      prices: {
+        normal?: IPokemonCardTCGPrices
+        holofoil?: IPokemonCardTCGPrices
+        reverseHolofoil?: IPokemonCardTCGPrices
+      }
+    }
+  ]
+}

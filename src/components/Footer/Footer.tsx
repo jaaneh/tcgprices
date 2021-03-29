@@ -63,16 +63,6 @@ const Foooter = () => {
                 color='gray.500'
                 _hover={{ color: 'gray.600' }}
               >
-                Press
-              </Link>
-            </Box>
-            <Box>
-              <Link
-                href='#'
-                lineHeight='1.5rem'
-                color='gray.500'
-                _hover={{ color: 'gray.600' }}
-              >
                 Accessibility
               </Link>
             </Box>

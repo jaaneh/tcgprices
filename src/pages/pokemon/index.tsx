@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SimpleGrid, Box, Text, Container, Heading } from '@chakra-ui/react'
+import { SimpleGrid, Container, Heading } from '@chakra-ui/react'
 
 import Layout from '@components/Layout'
 import PokemonHomeSeriesView from '@components/Pokemon/Home'
@@ -32,49 +32,3 @@ const PokemonSetsPage = () => {
 }
 
 export default PokemonSetsPage
-
-{
-  /* {sets.map(set => (
-  <NextChakraLink
-    key={set.id}
-    href={`/pokemon/${set.seriesPath}/${set.namePath}`}
-    style={{ textDecoration: 'none' }}
-  >
-    <MotionBox
-      minH='100%'
-      overflow='hidden'
-      bg='gray.900'
-      rounded='lg'
-      shadow='xs'
-      whileHover={{
-        scale: 1.03,
-        rotate: Math.random() < 0.5 ? -0.5 : 0.5
-      }}
-      whileTap={{ scale: 0.98 }}
-      transition={{ ease: 'easeInOut', duration: 0.2 }}
-    >
-      <Box textAlign='center' p={4}>
-        <Text
-          fontSize='sm'
-          fontWeight='semibold'
-          color='gray.400'
-          pb={4}
-          as='h3'
-        >
-          {set.name}
-        </Text>
-        <Box w='100%'>
-          <Image
-            src={set.images.logo}
-            alt={set.name}
-            objectFit='contain'
-            layout='responsive'
-            width={100}
-            height={40}
-          />
-        </Box>
-      </Box>
-    </MotionBox>
-  </NextChakraLink>
-))} */
-}

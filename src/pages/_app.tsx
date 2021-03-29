@@ -1,13 +1,30 @@
+import { AppProps } from 'next/app'
+import { Provider as NextAuthProvider } from 'next-auth/client'
 import { ChakraProvider } from '@chakra-ui/react'
 
-import theme from '../theme'
-import { AppProps } from 'next/app'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-function MyApp({ Component, pageProps }: AppProps) {
+import theme from '../theme'
+
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <ChakraProvider resetCSS theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <NextAuthProvider session={pageProps.session}>
+      <ChakraProvider resetCSS theme={theme}>
+        <ToastContainer
+          position='bottom-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        <Component {...pageProps} key={router.route} />
+      </ChakraProvider>
+    </NextAuthProvider>
   )
 }
 

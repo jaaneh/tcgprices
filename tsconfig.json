@@ -16,11 +16,15 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
+      "@UI/*": ["components/UI/*"],
       "@utils/*": ["utils/*"],
       "@lib/*": ["lib/*"],
-      "@UI/*": ["components/UI/*"],
       "@interfaces": ["interfaces"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@validation/*": ["validation/*"],
+      "@constants/*": ["constants/*"],
+      "@models/*": ["models/*"],
+      "@middlewares/*": ["middlewares/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

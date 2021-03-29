@@ -4,6 +4,7 @@ import { IResponse } from '@interfaces'
 import PokemonAPI from '@utils/PokemonAPI'
 
 import { getRedisClient } from '@lib/redis-v3'
+import { invalidRoute } from '@utils/API-responses'
 
 export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
   if (req.method === 'GET') {
@@ -43,10 +44,5 @@ export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
     }
   }
 
-  return res.status(404).json({
-    success: false,
-    error: {
-      message: 'Invalid route.'
-    }
-  })
+  return invalidRoute(res)
 }

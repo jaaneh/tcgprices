@@ -1,16 +1,49 @@
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
-import { Box, Text, Container, Flex } from '@chakra-ui/react'
+import { Box, Text, Container, Flex, Button } from '@chakra-ui/react'
+import { getSession, Session } from 'next-auth/client'
 
 import Layout from '@components/Layout'
-import { IPokemonCardPageContent } from '@interfaces'
-import { upperFirst, CARD_PRINTING } from '@utils/helpers'
+import { IPokemonCard } from '@interfaces'
+import { upperFirst, cleanName, CARD_PRINTING } from '@utils/helpers'
 import { getSetIdsByPaths } from '@utils/paths'
 
-const PokemonSingleCardPage = ({ card }: IPokemonCardPageContent) => {
+const PokemonSingleCardPage = ({
+  session,
+  card
+}: {
+  session: any
+  card: IPokemonCard
+}) => {
+  const saveCard = async () => {
+    const data = {
+      userId: session.account._id,
+      card: {
+        id: card.id,
+        name: card.name,
+        number: card.number,
+        path: `/pokemon/${cleanName(card.set.series)}/${cleanName(
+          card.set.name
+        )}/${card.number}`,
+        set: card.set,
+        prices: card.tcgplayer.prices
+      }
+    }
+
+    const res = await fetch('/api/v1/user/collections', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    const json = await res.json()
+    console.log(json)
+  }
+
   const renderPrices = prices => {
     return Object.keys(prices).map((item, index) => (
-      <Box key={index}>
+      <Box key={index} pb={2}>
         <Text as='h3' fontSize='lg'>
           {upperFirst(CARD_PRINTING[item])}
         </Text>
@@ -34,23 +67,11 @@ const PokemonSingleCardPage = ({ card }: IPokemonCardPageContent) => {
   return (
     <Layout>
       <Container maxW='7xl' mt={8}>
-        <Flex
-          direction={{
-            base: 'column',
-            sm: 'row'
-          }}
-        >
-          <Box
-            width={{
-              base: '100%',
-              sm: '40%',
-              md: '33.3%',
-              lg: '25%'
-            }}
-          >
+        <Flex direction={{ base: 'column', sm: 'row' }}>
+          <Box width={{ base: '100%', sm: '40%', md: '33.3%', lg: '25%' }}>
             <Box w='100%'>
               <Image
-                src={card.images.large ?? '/images/pokemon/card_back.png'}
+                src={card.images?.large || '/images/pokemon/card_back.png'}
                 alt={card.name}
                 loading='eager'
                 layout='responsive'
@@ -70,8 +91,23 @@ const PokemonSingleCardPage = ({ card }: IPokemonCardPageContent) => {
             <Text fontSize='lg' color='gray.200' pb={4}>
               {card.rarity}
             </Text>
+            <Box mt={4}>
+              <Text fontSize='2xl' fontWeight='semibold' color='gray.200'>
+                TCGplayer prices
+              </Text>
+              {renderPrices(card.tcgplayer.prices)}
+            </Box>
           </Flex>
         </Flex>
+        {session && (
+          <Flex direction='column' pl={0} pt={{ base: 6, sm: 0 }}>
+            <Box mt={8}>
+              <Button width={{ base: 'full', sm: 200 }} onClick={saveCard}>
+                Save
+              </Button>
+            </Box>
+          </Flex>
+        )}
       </Container>
     </Layout>
   )
@@ -85,6 +121,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const { setSeries, setName, cardNumber } = query
   const setId = getSetIdsByPaths(setSeries, setName)
+  const session: Session = await getSession({ req })
 
   let content = null
 
@@ -111,6 +148,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   return {
     props: {
+      session,
       card: content
     }
   }
