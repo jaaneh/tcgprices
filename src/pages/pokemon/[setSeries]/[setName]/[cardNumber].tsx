@@ -1,7 +1,8 @@
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import { Box, Text, Container, Flex, Button } from '@chakra-ui/react'
-import { getSession, Session } from 'next-auth/client'
+import { getSession } from 'next-auth/client'
+import { Session } from 'next-auth'
 
 import Layout from '@components/Layout'
 import { IPokemonCard } from '@interfaces'

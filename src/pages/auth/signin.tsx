@@ -1,5 +1,6 @@
 import { useRef, FormEvent, useState, useEffect } from 'react'
-import { signIn, getCsrfToken, getSession, Session } from 'next-auth/client'
+import { signIn, getCsrfToken, getSession } from 'next-auth/client'
+import { Session } from 'next-auth'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import {
@@ -389,7 +390,7 @@ const SignUpPage = ({ csrfToken }) => {
 
 export default SignUpPage
 
-export async function getStaticProps({ req }) {
+export async function getServerSideProps({ req }) {
   const session: Session = await getSession({ req })
 
   if (session) {

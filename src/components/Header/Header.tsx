@@ -25,12 +25,12 @@ import {
 
 import {
   AiOutlineMenu,
-  AiFillHome,
-  AiOutlineInbox,
+  // AiFillHome,
+  // AiOutlineInbox,
   AiFillBell
 } from 'react-icons/ai'
 
-import { BsFillCameraVideoFill } from 'react-icons/bs'
+// import { BsFillCameraVideoFill } from 'react-icons/bs'
 
 import { NextChakraLink } from '@components/NextChakraLink'
 
@@ -57,7 +57,7 @@ const Header = () => {
                 display={{ base: 'flex', md: 'none' }}
                 aria-label='Open menu'
                 fontSize='20px'
-                color={useColorModeValue('gray.800', 'inherit')}
+                color='gray.800'
                 variant='ghost'
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
@@ -73,7 +73,7 @@ const Header = () => {
                 pb={4}
                 m={2}
                 bg={bg}
-                spacing={3}
+                spacing={4}
                 rounded='sm'
                 shadow='sm'
               >
@@ -82,31 +82,18 @@ const Header = () => {
                   justifySelf='self-start'
                   onClick={mobileNav.onClose}
                 />
-                <Button
-                  w='full'
-                  variant='ghost'
-                  href='#'
-                  leftIcon={<AiFillHome />}
+                <NextChakraLink
+                  href='/pokemon'
+                  _hover={{ textDecoration: 'none' }}
                 >
-                  Dashboard
-                </Button>
-                <Button
-                  w='full'
-                  variant='solid'
-                  colorScheme='brand'
-                  href='#'
-                  leftIcon={<AiOutlineInbox />}
+                  Pokémon
+                </NextChakraLink>
+                <NextChakraLink
+                  href='/yugioh'
+                  _hover={{ textDecoration: 'none' }}
                 >
-                  Inbox
-                </Button>
-                <Button
-                  w='full'
-                  variant='ghost'
-                  href='#'
-                  leftIcon={<BsFillCameraVideoFill />}
-                >
-                  Videos
-                </Button>
+                  Yu-Gi-Oh!
+                </NextChakraLink>
               </VStack>
             </Box>
             <NextChakraLink href='/' display='flex' alignItems='center'>
@@ -123,9 +110,7 @@ const Header = () => {
             >
               <NextChakraLink
                 href='/pokemon'
-                _hover={{
-                  textDecoration: 'none'
-                }}
+                _hover={{ textDecoration: 'none' }}
               >
                 Pokémon
               </NextChakraLink>

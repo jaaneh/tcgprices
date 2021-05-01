@@ -2,6 +2,9 @@ module.exports = {
   webpack(config) {
     return config
   },
+  future: {
+    webpack5: true
+  },
   poweredByHeader: false,
   devIndicators: {
     autoPrerender: false

@@ -3,12 +3,12 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { IResponse } from '@interfaces'
 import PokemonAPI from '@utils/PokemonAPI'
 
-import { getRedisClient } from '@lib/redis-v3'
+import cache from '@lib/cache'
 import { invalidRoute } from '@utils/API-responses'
 
 export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
   if (req.method === 'GET') {
-    const cache = getRedisClient()
+    // const cache = getRedisClient()
 
     try {
       let value: any

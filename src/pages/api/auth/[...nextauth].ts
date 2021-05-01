@@ -6,6 +6,7 @@ import Providers from 'next-auth/providers'
 import { verifyPassword } from '@lib/auth'
 import dbConnect from '@lib/db'
 import User from '@models/user'
+import { ICredentials } from '@interfaces'
 
 export default (req: NextApiRequest, res: NextApiResponse) =>
   NextAuth(req, res, {
@@ -21,7 +22,7 @@ export default (req: NextApiRequest, res: NextApiResponse) =>
           password: { label: 'Password', type: 'password' },
           repeatPassword: { label: 'Repeat Password', type: 'password' }
         },
-        async authorize(credentials) {
+        async authorize(credentials: ICredentials) {
           await dbConnect()
 
           const user = await User.findOneAndUpdate(
@@ -70,7 +71,7 @@ export default (req: NextApiRequest, res: NextApiResponse) =>
       },
       session: async (session: any, user: any) => {
         delete session.user
-        delete user.password
+        delete user.user.password
         session.account = user.user
         return session
       }

@@ -1,4 +1,5 @@
-import { sets } from '@data/pokemon/sets/all.json'
+import allSets from '@data/pokemon/sets/all.json'
+const sets = allSets.sets
 
 export const getSetSeries = (name: string) =>
   sets.filter(set => set.seriesPath === name.toLowerCase())

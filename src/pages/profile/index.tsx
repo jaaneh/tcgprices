@@ -1,4 +1,5 @@
-import { getSession, Session } from 'next-auth/client'
+import { getSession } from 'next-auth/client'
+import { Session } from 'next-auth'
 
 import {
   Box,
@@ -33,13 +34,10 @@ const UserProfilePage = ({ session, saved_cards }) => {
               Session
             </Tab>
             <Tab py={4} m={0} _focus={{ boxShadow: 'none' }}>
-              Saved Cards
+              Settings
             </Tab>
             <Tab py={4} m={0} _focus={{ boxShadow: 'none' }}>
-              Change Password
-            </Tab>
-            <Tab isDisabled py={4} m={0}>
-              Coming Soon
+              Saved Cards
             </Tab>
           </TabList>
           {/* <Container maxW='7xl' mt={8}> */}
@@ -48,6 +46,9 @@ const UserProfilePage = ({ session, saved_cards }) => {
               <Box>
                 <pre>{JSON.stringify(session, null, 2)}</pre>
               </Box>
+            </TabPanel>
+            <TabPanel>
+              <ChangePassword />
             </TabPanel>
             <TabPanel>
               <Box>
@@ -59,6 +60,7 @@ const UserProfilePage = ({ session, saved_cards }) => {
                           key={card.id}
                           href={card.path}
                           style={{ textDecoration: 'none' }}
+                          _focus={{ boxShadow: 'none' }}
                         >
                           <ListItem mb={1}>
                             {card.set.name}: {card.name}
@@ -69,9 +71,6 @@ const UserProfilePage = ({ session, saved_cards }) => {
                   </Box>
                 )}
               </Box>
-            </TabPanel>
-            <TabPanel>
-              <ChangePassword />
             </TabPanel>
           </TabPanels>
           {/* </Container> */}

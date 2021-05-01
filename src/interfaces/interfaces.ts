@@ -1,6 +1,15 @@
 import { Document } from 'mongoose'
 
 // ======================
+export interface ICredentials {
+  redirect: string
+  username: string
+  password: string
+  csrfToken: string
+  callbackUrl: string
+  json: string
+}
+
 export interface IResponse {
   success: boolean
   data?: {
