@@ -33,11 +33,7 @@ const Index = () => {
       <Container mt={8}>
         <SimpleGrid columns={{ sm: 2, md: 2 }} gap={12}>
           {gameSelection.map((game: IGameSelection) => (
-            <NextChakraLink
-              key={game.name}
-              href={`${game.path}`}
-              style={{ textDecoration: 'none' }}
-            >
+            <NextChakraLink key={game.name} href={`${game.path}`} noUnderline>
               <MotionBox
                 minW={0}
                 minH={350}

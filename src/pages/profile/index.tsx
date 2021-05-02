@@ -59,7 +59,7 @@ const UserProfilePage = ({ session, saved_cards }) => {
                         <NextChakraLink
                           key={card.id}
                           href={card.path}
-                          style={{ textDecoration: 'none' }}
+                          noUnderline
                           _focus={{ boxShadow: 'none' }}
                         >
                           <ListItem mb={1}>

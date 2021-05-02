@@ -82,16 +82,10 @@ const Header = () => {
                   justifySelf='self-start'
                   onClick={mobileNav.onClose}
                 />
-                <NextChakraLink
-                  href='/pokemon'
-                  _hover={{ textDecoration: 'none' }}
-                >
+                <NextChakraLink href='/pokemon' noUnderline>
                   Pokémon
                 </NextChakraLink>
-                <NextChakraLink
-                  href='/yugioh'
-                  _hover={{ textDecoration: 'none' }}
-                >
+                <NextChakraLink href='/yugioh' noUnderline>
                   Yu-Gi-Oh!
                 </NextChakraLink>
               </VStack>
@@ -108,16 +102,10 @@ const Header = () => {
               ml={8}
               display={{ base: 'none', md: 'inline-flex' }}
             >
-              <NextChakraLink
-                href='/pokemon'
-                _hover={{ textDecoration: 'none' }}
-              >
+              <NextChakraLink href='/pokemon' noUnderline>
                 Pokémon
               </NextChakraLink>
-              <NextChakraLink
-                href='/yugioh'
-                _hover={{ textDecoration: 'none' }}
-              >
+              <NextChakraLink href='/yugioh' noUnderline>
                 Yu-Gi-Oh!
               </NextChakraLink>
             </HStack>
@@ -175,10 +163,7 @@ const Header = () => {
                           </Flex>
                         </MenuButton>
                         <MenuList>
-                          <NextChakraLink
-                            href='/profile'
-                            _hover={{ textDecoration: 'none' }}
-                          >
+                          <NextChakraLink href='/profile' noUnderline>
                             <MenuItem>Profile</MenuItem>
                           </NextChakraLink>
                           <MenuItem onClick={() => signOut()}>

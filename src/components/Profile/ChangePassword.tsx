@@ -1,5 +1,4 @@
 import { FormEvent, useState, useRef } from 'react'
-import { toast } from 'react-toastify'
 import {
   Heading,
   Box,
@@ -8,7 +7,8 @@ import {
   Input,
   FormControl,
   FormLabel,
-  FormErrorMessage
+  FormErrorMessage,
+  useToast
 } from '@chakra-ui/react'
 
 import { IResponse } from '@interfaces'
@@ -17,6 +17,8 @@ import MotionBox from '@components/MotionBox'
 import { shakeAnimationVariants } from '@utils/animation'
 
 const ChangePassword = () => {
+  const toast = useToast()
+
   const oldPasswordInputRef = useRef<HTMLInputElement>()
   const newPasswordInputRef = useRef<HTMLInputElement>()
 
@@ -81,9 +83,19 @@ const ChangePassword = () => {
       data.error?.message?.message ===
       '"new_password" contains an invalid value'
     ) {
-      toast.error("Old and new passwords can't be similar.")
+      toast({
+        title: 'Something went wrong',
+        description: "Old and new passwords can't be similar.",
+        status: 'error',
+        isClosable: true
+      })
     } else {
-      toast.success(data.data?.message || 'Password changed.')
+      toast({
+        title: 'Success',
+        description: `${data.data?.message || 'Password changed.'}`,
+        status: 'success',
+        isClosable: true
+      })
     }
     setSubmitDisabled(false)
   }

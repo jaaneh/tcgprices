@@ -31,6 +31,12 @@ export interface ICache {
   [key: string]: any
 }
 
+export interface IBreadcrumbItem {
+  href: string
+  text: string
+  isCurrentPage?: boolean
+}
+
 export interface IJoiError {
   context: {
     label: string
@@ -147,7 +153,7 @@ export interface IPokemonCardPageContent {
 
 export interface IPokemonSetPageContent {
   displayName?: string
-  content: IPokemonCard[]
+  cards: IPokemonCard[]
 }
 
 export type PokemonSetIds =

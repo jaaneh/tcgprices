@@ -2,7 +2,6 @@ import { useRef, FormEvent, useState, useEffect } from 'react'
 import { signIn, getCsrfToken, getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
 import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
 import {
   useColorMode,
   Box,
@@ -15,7 +14,8 @@ import {
   FormLabel,
   FormErrorMessage,
   Input,
-  Button
+  Button,
+  useToast
 } from '@chakra-ui/react'
 
 import { NextChakraLink } from '@components/NextChakraLink'
@@ -51,6 +51,8 @@ const createUser = async (
 }
 
 const SignUpPage = ({ csrfToken }) => {
+  const toast = useToast()
+
   const usernameInputRef = useRef<HTMLInputElement>()
   const emailInputRef = useRef<HTMLInputElement>()
   const passwordInputRef = useRef<HTMLInputElement>()
@@ -226,7 +228,12 @@ const SignUpPage = ({ csrfToken }) => {
         } else {
           setSubmitDisabled(false)
           switchAuthModeHandler()
-          toast.success('Account created. You may now log in.')
+          toast({
+            title: 'Success',
+            description: 'Account created. You may now log in.',
+            status: 'success',
+            isClosable: true
+          })
           setAllErrorsToFalse()
           passwordInputRef.current.value = ''
         }

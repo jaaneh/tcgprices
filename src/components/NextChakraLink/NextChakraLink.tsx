@@ -7,7 +7,10 @@ import {
 } from '@chakra-ui/react'
 
 export type NextChakraLinkProps = PropsWithChildren<
-  NextLinkProps & Omit<ChakraLinkProps, 'as'>
+  NextLinkProps &
+    Omit<ChakraLinkProps, 'as'> & {
+      noUnderline?: boolean
+    }
 >
 
 export const NextChakraLink = ({
@@ -18,6 +21,7 @@ export const NextChakraLink = ({
   shallow,
   prefetch,
   children,
+  noUnderline = false,
   ...chakraProps
 }: NextChakraLinkProps) => {
   return (
@@ -30,7 +34,14 @@ export const NextChakraLink = ({
       shallow={shallow}
       prefetch={prefetch}
     >
-      <ChakraLink {...chakraProps}>{children}</ChakraLink>
+      <ChakraLink
+        {...chakraProps}
+        _hover={{
+          textDecoration: `${noUnderline ? 'none' : 'underline'}`
+        }}
+      >
+        {children}
+      </ChakraLink>
     </NextLink>
   )
 }

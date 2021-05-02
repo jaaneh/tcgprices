@@ -123,10 +123,7 @@ const Header = props => {
                   </Flex>
                 </MenuButton>
                 <MenuList>
-                  <NextChakraLink
-                    href='/profile'
-                    _hover={{ textDecoration: 'none' }}
-                  >
+                  <NextChakraLink href='/profile' noUnderline>
                     <MenuItem>Profile</MenuItem>
                   </NextChakraLink>
                   <MenuItem onClick={() => signOut()}>Sign out</MenuItem>

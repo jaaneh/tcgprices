@@ -23,7 +23,7 @@ const PokemonHomeView = ({ sets }) => {
         <NextChakraLink
           key={set.id}
           href={`/pokemon/${set.seriesPath}/${set.namePath}`}
-          style={{ textDecoration: 'none' }}
+          noUnderline
         >
           <MotionBox
             minH='100%'
