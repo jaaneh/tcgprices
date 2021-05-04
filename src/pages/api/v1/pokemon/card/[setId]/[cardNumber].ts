@@ -12,8 +12,8 @@ export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
 
     try {
       const { setId, cardNumber } = req.query
-      let value: any
-      let cachedValue: any
+      let value: any = null
+      let cachedValue: any = null
 
       cache.get(
         `pokemon-card-setid-cardnumber-${setId}-${cardNumber}`,
@@ -28,11 +28,13 @@ export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
           setId as PokemonSetIds,
           cardNumber as string
         )
-        cache.set(
-          `pokemon-card-setid-cardnumber-${setId}-${cardNumber}`,
-          JSON.stringify(data)
-        )
-        value = data
+        if (data.data) {
+          cache.set(
+            `pokemon-card-setid-cardnumber-${setId}-${cardNumber}`,
+            JSON.stringify(data)
+          )
+          value = data
+        }
       } else {
         value = cachedValue
       }

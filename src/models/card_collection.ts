@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 
-import { IMongoSavedCardsModel } from '@interfaces'
+import { ICardCollectionModel } from '@interfaces'
 
 const cardArrSchema: Schema = new Schema(
   {
@@ -54,13 +54,31 @@ const cardArrSchema: Schema = new Schema(
   { _id: false, versionKey: false }
 )
 
-const SavedCardsSchema: Schema = new Schema(
+const CardCollectionSchema: Schema = new Schema(
   {
-    collection_id: { type: String, required: [true, 'Missing collection_id'] },
+    collection_id: { type: String, required: [true, 'Missing collection id'] },
+    owner_id: { type: String, required: [true, 'Missing owner_id'] },
+    name: {
+      type: String,
+      default: 'My default collection name',
+      required: [true, 'Missing collection name']
+    },
+    images: {
+      thumbnail: {
+        type: String,
+        default: '/path/to/thumbnail',
+        required: [true, 'Missing thumbnail image']
+      },
+      header: {
+        type: String,
+        default: '/path/to/header',
+        required: [true, 'Missing header image']
+      }
+    },
     cards: [cardArrSchema]
   },
   { versionKey: false }
 )
 
-export default mongoose.models.SavedCards ||
-  mongoose.model<IMongoSavedCardsModel>('SavedCards', SavedCardsSchema)
+export default mongoose.models.CardCollection ||
+  mongoose.model<ICardCollectionModel>('CardCollection', CardCollectionSchema)

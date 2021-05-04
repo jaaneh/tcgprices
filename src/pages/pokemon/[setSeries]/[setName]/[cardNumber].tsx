@@ -1,12 +1,15 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { Box, Text, Container, Flex, Button } from '@chakra-ui/react'
 import { getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
 
 import Layout from '@components/Layout'
-import { IPokemonCard } from '@interfaces'
-import { upperFirst, cleanName, CARD_PRINTING } from '@utils/helpers'
+import Breadcrumb from '@components/Breadcrumb'
+
+import { IBreadcrumbItem, IPokemonCard } from '@interfaces'
+import { upperFirst, createURL, CARD_PRINTING } from '@utils/helpers'
 import { getSetIdsByPaths } from '@utils/paths'
 
 const PokemonSingleCardPage = ({
@@ -16,16 +19,19 @@ const PokemonSingleCardPage = ({
   session: any
   card: IPokemonCard
 }) => {
+  const router = useRouter()
+
   const saveCard = async () => {
     const data = {
-      userId: session.account._id,
       card: {
         id: card.id,
         name: card.name,
         number: card.number,
-        path: `/pokemon/${cleanName(card.set.series)}/${cleanName(
-          card.set.name
-        )}/${card.number}`,
+        path: `/pokemon/${createURL([
+          card.set.series,
+          card.set.name,
+          card.number
+        ])}`,
         set: card.set,
         prices: card.tcgplayer.prices
       }
@@ -58,23 +64,49 @@ const PokemonSingleCardPage = ({
   if (!card) {
     return (
       <Layout>
-        <Text fontSize='lg' fontWeight='medium' color='gray.600'>
+        <Text fontSize='lg' mt={4} mb={2} fontWeight='medium' color='gray.200'>
           No card..
         </Text>
+        <Button onClick={() => router.push('/')}>Back Home</Button>
       </Layout>
     )
   }
 
+  const breadcrumbs: IBreadcrumbItem[] = [
+    {
+      href: '/pokemon',
+      text: 'Pokémon'
+    },
+    {
+      href: `/pokemon/${createURL([card.set.series])}`,
+      text: card.set.series
+    },
+    {
+      href: `/pokemon/${createURL([card.set.series, card.set.name])}`,
+      text: card.set.name
+    },
+    {
+      href: `/pokemon/${createURL([
+        card.set.series,
+        card.set.name,
+        card.number
+      ])}`,
+      text: card.name,
+      isCurrentPage: true
+    }
+  ]
+
   return (
     <Layout>
       <Container maxW='7xl' mt={8}>
+        <Breadcrumb items={breadcrumbs} />
         <Flex direction={{ base: 'column', sm: 'row' }}>
           <Box width={{ base: '100%', sm: '40%', md: '33.3%', lg: '25%' }}>
             <Box w='100%'>
               <Image
                 src={card.images?.large || '/images/pokemon/card_back.png'}
                 alt={card.name}
-                loading='eager'
+                priority={true}
                 layout='responsive'
                 width={100}
                 height={139}
@@ -143,7 +175,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     options
   )
   const json = await response.json()
-  if (json.success && json.data) {
+  if (json.success && json.data.length) {
     content = json.data[0]
   }
 

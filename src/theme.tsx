@@ -34,8 +34,8 @@ const theme = extendTheme({
       800: '#1D1D42'
     },
     brand: {
-      'bg-light': '#1D1D42',
-      'bg-dark': '#141432',
+      'bg-light': '#151523',
+      'bg-dark': '#010101',
       'card-light': '#26264E',
       'card-dark': '#1B1A43',
       blue: '#524EEE',

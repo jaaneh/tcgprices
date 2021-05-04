@@ -15,7 +15,8 @@ const PokemonSetsPage = () => {
   const breadcrumbs: IBreadcrumbItem[] = [
     {
       href: '/pokemon',
-      text: 'Pokémon'
+      text: 'Pokémon',
+      isCurrentPage: true
     }
   ]
 

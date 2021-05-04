@@ -5,15 +5,6 @@ import { NextChakraLink } from '@components/NextChakraLink'
 import MotionBox from '@components/MotionBox'
 import { ICustomPokemonSet } from '@interfaces'
 
-// const PokemonHomeViewOld = ({ sets }) => {
-//   const allSets = sets.sort((a, b) => {
-//     const dateOne = new Date(a.releaseDate).getTime()
-//     const dateTwo = new Date(b.releaseDate).getTime()
-//     if (dateOne < dateTwo) return 1
-//     if (dateOne > dateTwo) return -1
-//     return 0
-//   })
-
 const PokemonHomeView = ({ sets }) => {
   const { colorMode } = useColorMode()
 

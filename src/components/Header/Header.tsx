@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { signOut, useSession } from 'next-auth/client'
+
 import {
   chakra,
   useColorModeValue,
@@ -23,16 +24,11 @@ import {
   Heading
 } from '@chakra-ui/react'
 
-import {
-  AiOutlineMenu,
-  // AiFillHome,
-  // AiOutlineInbox,
-  AiFillBell
-} from 'react-icons/ai'
-
-// import { BsFillCameraVideoFill } from 'react-icons/bs'
+import { AiOutlineMenu, AiFillBell } from 'react-icons/ai'
 
 import { NextChakraLink } from '@components/NextChakraLink'
+
+import SearchBar from '@components/Search'
 
 const Header = () => {
   const router = useRouter()
@@ -52,12 +48,12 @@ const Header = () => {
       >
         <Flex alignItems='center' justifyContent='space-between' mx='auto'>
           <Flex alignItems='center'>
-            <Box display={{ base: 'inline-flex', md: 'none' }}>
+            <Box display={{ base: 'inline-flex', md: 'none' }} zIndex='50'>
               <IconButton
                 display={{ base: 'flex', md: 'none' }}
                 aria-label='Open menu'
                 fontSize='20px'
-                color='gray.800'
+                color='white'
                 variant='ghost'
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
@@ -74,12 +70,13 @@ const Header = () => {
                 m={2}
                 bg={bg}
                 spacing={4}
-                rounded='sm'
-                shadow='sm'
+                rounded='md'
+                shadow='lg'
               >
                 <CloseButton
                   aria-label='Close menu'
                   justifySelf='self-start'
+                  alignSelf='flex-start'
                   onClick={mobileNav.onClose}
                 />
                 <NextChakraLink href='/pokemon' noUnderline>
@@ -91,7 +88,7 @@ const Header = () => {
               </VStack>
             </Box>
             <NextChakraLink href='/' display='flex' alignItems='center'>
-              <Heading as='h1' size='lg' letterSpacing={'-.1rem'}>
+              <Heading as='h1' size='lg' letterSpacing={'-.1rem'} tabIndex={1}>
                 TCGprices
               </Heading>
               <VisuallyHidden>TCGprices</VisuallyHidden>
@@ -111,6 +108,7 @@ const Header = () => {
             </HStack>
           </Flex>
           <HStack spacing={3} display='flex' alignItems='center'>
+            <SearchBar />
             {!session && (
               <Stack
                 direction='row'
@@ -118,7 +116,6 @@ const Header = () => {
                 display={{ base: show ? 'flex' : 'none', md: 'flex' }}
                 mt={{ base: 4, md: 0 }}
               >
-                {/* <NextChakraLink href='/auth/signin'> */}
                 <Button
                   variant='outline'
                   paddingX={8}
@@ -128,7 +125,6 @@ const Header = () => {
                 >
                   Sign in
                 </Button>
-                {/* </NextChakraLink> */}
               </Stack>
             )}
             {session && (
@@ -138,7 +134,7 @@ const Header = () => {
                   color='inherit'
                   rounded='sm'
                   href='#'
-                  _hover={{ color: 'gray.400' }}
+                  _hover={{ color: 'gray.200' }}
                 >
                   <AiFillBell />
                   <VisuallyHidden>Notifications</VisuallyHidden>
@@ -165,6 +161,9 @@ const Header = () => {
                         <MenuList>
                           <NextChakraLink href='/profile' noUnderline>
                             <MenuItem>Profile</MenuItem>
+                          </NextChakraLink>
+                          <NextChakraLink href='/profile' noUnderline>
+                            <MenuItem>My Collections</MenuItem>
                           </NextChakraLink>
                           <MenuItem onClick={() => signOut()}>
                             Sign out

@@ -3,8 +3,6 @@ import { Session } from 'next-auth'
 
 import {
   Box,
-  ListItem,
-  List,
   Tabs,
   TabList,
   Tab,
@@ -15,9 +13,10 @@ import {
 
 import Layout from '@components/Layout'
 import ChangePassword from '@components/Profile/ChangePassword'
-import { NextChakraLink } from '@components/NextChakraLink'
+import MyCollections from '@components/Profile/MyCollections'
+// import { NextChakraLink } from '@components/NextChakraLink'
 
-const UserProfilePage = ({ session, saved_cards }) => {
+const UserProfilePage = ({ session, collections }) => {
   return (
     <Layout>
       <Flex
@@ -37,7 +36,7 @@ const UserProfilePage = ({ session, saved_cards }) => {
               Settings
             </Tab>
             <Tab py={4} m={0} _focus={{ boxShadow: 'none' }}>
-              Saved Cards
+              My Collections
             </Tab>
           </TabList>
           {/* <Container maxW='7xl' mt={8}> */}
@@ -51,26 +50,7 @@ const UserProfilePage = ({ session, saved_cards }) => {
               <ChangePassword />
             </TabPanel>
             <TabPanel>
-              <Box>
-                {saved_cards && (
-                  <Box pb={2}>
-                    <List>
-                      {saved_cards.cards.map(card => (
-                        <NextChakraLink
-                          key={card.id}
-                          href={card.path}
-                          noUnderline
-                          _focus={{ boxShadow: 'none' }}
-                        >
-                          <ListItem mb={1}>
-                            {card.set.name}: {card.name}
-                          </ListItem>
-                        </NextChakraLink>
-                      ))}
-                    </List>
-                  </Box>
-                )}
-              </Box>
+              <MyCollections collections={collections} />
             </TabPanel>
           </TabPanels>
           {/* </Container> */}
@@ -84,7 +64,7 @@ export default UserProfilePage
 
 export async function getServerSideProps({ req }) {
   const session: Session = await getSession({ req })
-  let saved_cards = null
+  let collections = null
 
   if (!session) {
     return {
@@ -98,17 +78,16 @@ export async function getServerSideProps({ req }) {
 
   const hostname = process.env.NEXTAUTH_URL || 'http://localhost:3000'
   const options = { headers: { cookie: req.headers.cookie } }
-  const response = await fetch(`${hostname}/api/v1/user/collections`, options)
+  const response = await fetch(`${hostname}/api/v1/collections`, options)
   const json = await response.json()
   if (json.success && json.data) {
-    saved_cards = json.data
+    collections = json.data
   }
 
   return {
     props: {
       session,
-      saved_cards
-      // user: content
+      collections
     }
   }
 }

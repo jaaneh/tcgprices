@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
-// import { connectToDatabase } from '@lib/db'
 import { verifyPassword } from '@lib/auth'
 import dbConnect from '@lib/db'
 import User from '@models/user'

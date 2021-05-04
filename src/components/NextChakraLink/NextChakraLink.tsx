@@ -21,7 +21,7 @@ export const NextChakraLink = ({
   shallow,
   prefetch,
   children,
-  noUnderline = false,
+  noUnderline,
   ...chakraProps
 }: NextChakraLinkProps) => {
   return (

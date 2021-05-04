@@ -148,7 +148,8 @@ interface IPokemonCardTCGPlayer {
 }
 
 export interface IPokemonCardPageContent {
-  card: IPokemonCard
+  displayName?: string
+  cards: IPokemonCard
 }
 
 export interface IPokemonSetPageContent {
@@ -293,20 +294,26 @@ export interface IMongoUserModel extends Document {
   }
 }
 
-export interface IMongoSavedCardsModel extends Document {
+export interface ICardCollectionCard {
+  id: string
+  name: string
+  number: string
+  path: string
+  set: IPokemonSet
+  prices: {
+    normal?: IPokemonCardTCGPrices
+    holofoil?: IPokemonCardTCGPrices
+    reverseHolofoil?: IPokemonCardTCGPrices
+  }
+}
+
+export interface ICardCollectionModel extends Document {
   collection_id: string
-  cards: [
-    {
-      id: string
-      name: string
-      number: string
-      path: string
-      set: IPokemonSet
-      prices: {
-        normal?: IPokemonCardTCGPrices
-        holofoil?: IPokemonCardTCGPrices
-        reverseHolofoil?: IPokemonCardTCGPrices
-      }
-    }
-  ]
+  owner_id: string
+  name: string
+  images: {
+    thumbnail: string
+    header: string
+  }
+  cards: ICardCollectionCard
 }

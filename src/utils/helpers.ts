@@ -17,6 +17,26 @@ export function setPath(name: string): string {
 }
 
 /**
+ * Convert properties to URL for use with Next Routing.
+ * @interface ICreateUrl
+ * @param {object} path object of properties to turn into complete URL path
+ * @returns URL as string.
+ */
+export function createURL(paths: Array<any>): string {
+  let finalUrl: string = ''
+
+  for (let i = 0; i < paths.length; i++) {
+    if (i === 0) {
+      finalUrl += cleanName(paths[i])
+    } else {
+      finalUrl += `/${cleanName(paths[i])}`
+    }
+  }
+
+  return finalUrl
+}
+
+/**
  * Convert string to lowercase.
  * @param val string to convert.
  * @returns Stringified and lowercased value.

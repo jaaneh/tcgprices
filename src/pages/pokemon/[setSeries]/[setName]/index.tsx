@@ -1,4 +1,4 @@
-import React from 'react'
+import { useMemo } from 'react'
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -28,7 +28,7 @@ import {
   IPokemonSetPageContent
 } from '@interfaces'
 import { getSetIdsByPaths } from '@utils/paths'
-import { cleanName } from '@utils/helpers'
+import { cleanName, createURL } from '@utils/helpers'
 
 import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc'
 
@@ -38,9 +38,9 @@ const PokemonSingleSetPage = ({
 }: IPokemonSetPageContent) => {
   const router = useRouter()
 
-  const data = React.useMemo(() => cards, [])
+  const data = useMemo(() => cards, [])
 
-  const columns = React.useMemo(
+  const columns = useMemo(
     () => [
       {
         Header: 'Product',
@@ -128,8 +128,12 @@ const PokemonSingleSetPage = ({
       text: 'Pokémon'
     },
     {
-      href: '#',
-      text: displayName,
+      href: `/pokemon/${createURL([cards[0].set.series])}`,
+      text: cards[0].set.series
+    },
+    {
+      href: `/pokemon/${createURL([cards[0].set.series, cards[0].set.name])}`,
+      text: cards[0].set.name,
       isCurrentPage: true
     }
   ]

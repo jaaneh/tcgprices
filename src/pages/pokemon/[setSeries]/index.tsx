@@ -4,16 +4,32 @@ import { SimpleGrid, Box, Text, Container, Heading } from '@chakra-ui/react'
 
 import Layout from '@components/Layout'
 import MotionBox from '@components/MotionBox'
+import Breadcrumb from '@components/Breadcrumb'
 import { NextChakraLink } from '@components/NextChakraLink'
 
 import { getSetSeries, getSetSeriesPaths } from '@utils/paths'
+import { createURL } from '@utils/helpers'
 
-import { ICustomPokemonSet } from '@interfaces'
+import { ICustomPokemonSet, IBreadcrumbItem } from '@interfaces'
 
 const PokemonSetName = ({ sets }: { sets: ICustomPokemonSet[] }) => {
+  console.log(sets)
+  const breadcrumbs: IBreadcrumbItem[] = [
+    {
+      href: '/pokemon',
+      text: 'Pokémon'
+    },
+    {
+      href: `/pokemon/${createURL([sets[0].series])}`,
+      text: sets[0].series,
+      isCurrentPage: true
+    }
+  ]
+
   return (
     <Layout>
       <Container maxW='7xl' mt={8}>
+        <Breadcrumb items={breadcrumbs} />
         <Heading textAlign='left' mb={8} as='h1' size='lg'>
           {sets[0].series}
         </Heading>
