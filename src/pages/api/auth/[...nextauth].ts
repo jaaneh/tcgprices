@@ -24,6 +24,7 @@ export default (req: NextApiRequest, res: NextApiResponse) =>
         async authorize(credentials: ICredentials) {
           await dbConnect()
 
+          //@ts-ignore
           const user = await User.findOneAndUpdate(
             { username: credentials.username },
             { $set: { last_signin: Date.now() } },

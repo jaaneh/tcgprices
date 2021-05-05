@@ -1,7 +1,15 @@
-import * as React from 'react'
+import { Fragment } from 'react'
 import { useSession } from 'next-auth/client'
 import { v4 as uuidv4 } from 'uuid'
-import { Flex, Heading, SimpleGrid, Icon, Text, Button } from '@chakra-ui/react'
+import {
+  Flex,
+  Heading,
+  SimpleGrid,
+  Icon,
+  Text,
+  Button,
+  Box
+} from '@chakra-ui/react'
 
 import MotionBox from '@components/MotionBox'
 import { NextChakraLink } from '@components/NextChakraLink'
@@ -18,14 +26,14 @@ const CollectionMotionBox = ({ createNew = false, children }) => (
     height='200px'
     border={`${createNew ? '3px dotted #222c3c' : 'none'}`}
     borderRadius='md'
-    background='brand.bg-light'
+    background={`${createNew ? 'transparent' : 'brand.bg-light'}`}
     display='flex'
     justifyContent='center'
     alignItems='center'
     cursor='pointer'
     whileHover={{
-      scale: 1.03,
-      rotate: Math.random() < 0.5 ? -0.35 : 0.35
+      scale: 1.03
+      // rotate: Math.random() < 0.5 ? -0.35 : 0.35
     }}
     whileTap={{ scale: 0.98 }}
     transition={{ ease: 'easeInOut', duration: 0.2 }}
@@ -65,11 +73,11 @@ const MyCollections: React.FC<Props> = ({ collections }) => {
       <SimpleGrid columns={{ sm: 2, md: 3, lg: 3, xl: 6 }} gap={10}>
         {collections.length ? (
           collections.map((collection: ICardCollectionModel, i) => (
-            <>
+            <Fragment key={i}>
               <NextChakraLink
-                key={i}
                 href={`/collection/${collection.collection_id}`}
                 noUnderline
+                _focus={{ boxShadow: 'none' }}
                 aria-label={`${collection.name}`}
               >
                 <CollectionMotionBox>
@@ -77,10 +85,18 @@ const MyCollections: React.FC<Props> = ({ collections }) => {
                     flexDir='column'
                     justifyContent='center'
                     alignItems='center'
-                  >
-                    <Text fontSize='md'>{collection.name}</Text>
-                  </Flex>
+                  ></Flex>
                 </CollectionMotionBox>
+                <Box mt={3} mb={2}>
+                  <Text
+                    fontSize='md'
+                    fontWeight='semibold'
+                    color='gray.200'
+                    as='h3'
+                  >
+                    {collection.name}
+                  </Text>
+                </Box>
               </NextChakraLink>
               <CollectionMotionBox createNew>
                 <Flex
@@ -92,7 +108,7 @@ const MyCollections: React.FC<Props> = ({ collections }) => {
                   <Text fontSize='md'>New collection</Text>
                 </Flex>
               </CollectionMotionBox>
-            </>
+            </Fragment>
           ))
         ) : (
           <CollectionMotionBox>
