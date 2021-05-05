@@ -47,6 +47,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
         setDefaultsOnInsert: true
       }
 
+      //@ts-ignore
       const result = await CardCollection.updateOne(filter, update, options)
 
       if (result.ok) {
