@@ -62,7 +62,7 @@ export default (req: NextApiRequest, res: NextApiResponse) =>
       signOut: '/',
       error: '/',
       verifyRequest: '/',
-      newUser: null
+      newUser: '/'
     },
     callbacks: {
       jwt: async (token, user, _account, _profile, _isNewUser) => {

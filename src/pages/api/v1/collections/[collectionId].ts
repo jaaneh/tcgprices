@@ -13,6 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
 
     try {
       const result = await CardCollection.findOne({
+        //@ts-ignore
         collection_id: collectionId
       })
 

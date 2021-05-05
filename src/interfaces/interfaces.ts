@@ -309,6 +309,7 @@ export interface ICardCollectionCard {
 
 export interface ICardCollectionModel extends Document {
   collection_id: string
+  // collection_id: string | string[]
   owner_id: string
   name: string
   images: {
