@@ -9,7 +9,7 @@ import CardCollection from '@models/card_collection'
 import dbConnect from '@lib/db'
 
 export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
-  const session: Session = await getSession({ req })
+  const session: Session | null = await getSession({ req })
 
   if (!session) {
     return notAuthorized(res)

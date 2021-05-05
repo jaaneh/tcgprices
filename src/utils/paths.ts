@@ -7,8 +7,8 @@ export const getSetSeries = (name: string) =>
 export const getSetSeriesPaths = () => sets.filter(set => set.seriesPath)
 
 export const getSetIdsByPaths = (
-  seriesPath: string | string[],
-  namePath: string | string[]
+  seriesPath: string | string[] | undefined,
+  namePath: string | string[] | undefined
 ) => {
   const value = sets.filter(
     set => set.namePath === namePath && set.seriesPath === seriesPath

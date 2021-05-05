@@ -154,7 +154,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const { setSeries, setName, cardNumber } = query
   const setId = getSetIdsByPaths(setSeries, setName)
-  const session: Session = await getSession({ req })
+  const session: Session | null = await getSession({ req })
 
   let content = null
 

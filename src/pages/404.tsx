@@ -1,28 +1,20 @@
 import { useEffect } from 'react'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import Layout from '@components/Layout'
 import { Spinner } from '@chakra-ui/react'
 
 const Custom404 = () => {
+  const router = useRouter()
+
   useEffect(() => {
-    Router.push('/')
+    router.push('/')
   }, [])
 
   return (
     <Layout>
-      <Spinner />
+      <Spinner mt={8} />
     </Layout>
   )
 }
 
 export default Custom404
-
-export async function getStaticProps() {
-  return {
-    props: {},
-    redirect: {
-      destination: '/',
-      permanent: true
-    }
-  }
-}

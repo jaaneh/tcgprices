@@ -1,5 +1,6 @@
+import * as React from 'react'
 import { useRef, FormEvent, useState, useEffect } from 'react'
-import { signIn, getCsrfToken, getSession } from 'next-auth/client'
+import { signIn, getCsrfToken, getSession, CtxOrReq } from 'next-auth/client'
 import { Session } from 'next-auth'
 import { useRouter } from 'next/router'
 import {
@@ -24,6 +25,10 @@ import Layout from '@components/Layout'
 import { IJoiError } from '@interfaces'
 import MotionBox from '@components/MotionBox'
 import { shakeAnimationVariants } from '@utils/animation'
+
+type Props = {
+  csrfToken: string | number | readonly string[]
+}
 
 const createUser = async (
   username: string,
@@ -50,14 +55,14 @@ const createUser = async (
   return data
 }
 
-const SignUpPage = ({ csrfToken }) => {
+const SignUpPage: React.FC<Props> = ({ csrfToken }) => {
   const toast = useToast()
 
-  const usernameInputRef = useRef<HTMLInputElement>()
-  const emailInputRef = useRef<HTMLInputElement>()
-  const passwordInputRef = useRef<HTMLInputElement>()
-  const repeatPasswordInputRef = useRef<HTMLInputElement>()
-  const rememberMeRef = useRef<HTMLInputElement>()
+  const usernameInputRef = useRef<HTMLInputElement>(null)
+  const emailInputRef = useRef<HTMLInputElement>(null)
+  const passwordInputRef = useRef<HTMLInputElement>(null)
+  const repeatPasswordInputRef = useRef<HTMLInputElement>(null)
+  const rememberMeRef = useRef<HTMLInputElement>(null)
 
   const [submitDisabled, setSubmitDisabled] = useState<boolean>(false)
 
@@ -398,7 +403,7 @@ const SignUpPage = ({ csrfToken }) => {
 export default SignUpPage
 
 export async function getServerSideProps({ req }) {
-  const session: Session = await getSession({ req })
+  const session: Session | null = await getSession({ req })
 
   if (session) {
     return {

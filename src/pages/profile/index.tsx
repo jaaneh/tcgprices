@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
 
@@ -16,7 +17,14 @@ import ChangePassword from '@components/Profile/ChangePassword'
 import MyCollections from '@components/Profile/MyCollections'
 // import { NextChakraLink } from '@components/NextChakraLink'
 
-const UserProfilePage = ({ session, collections }) => {
+import { ICardCollectionModel } from '@interfaces'
+
+type Props = {
+  session: Session | null
+  collections: ICardCollectionModel[]
+}
+
+const UserProfilePage: React.FC<Props> = ({ session, collections }) => {
   return (
     <Layout>
       <Flex
@@ -63,7 +71,7 @@ const UserProfilePage = ({ session, collections }) => {
 export default UserProfilePage
 
 export async function getServerSideProps({ req }) {
-  const session: Session = await getSession({ req })
+  const session: Session | null = await getSession({ req })
   let collections = null
 
   if (!session) {

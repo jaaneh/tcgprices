@@ -47,7 +47,7 @@ const MyCollections: React.FC<Props> = ({ collections }) => {
 
   const createNewCollection = async () => {
     const data = {
-      owner_id: session.account.uuid,
+      owner_id: session?.account.uuid,
       collection_id: uuidv4()
     }
 

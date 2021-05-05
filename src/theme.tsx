@@ -17,6 +17,7 @@ const config = {
 
 const theme = extendTheme({
   breakpoints,
+  //@ts-ignore
   config,
   styles: {
     global: ({ colorMode }) => ({
@@ -54,6 +55,7 @@ const theme = extendTheme({
   components: {
     Button: {
       variants: {
+        //@ts-ignore
         'brand-blue': {
           bg: 'brand.blue',
           color: 'brand.white',
