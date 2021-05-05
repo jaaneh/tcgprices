@@ -14,7 +14,7 @@ import * as redis from 'redis'
 //   return redis.createClient(process.env.REDIS_URI)
 // }
 
-const client = redis.createClient()
+const client = redis.createClient(process.env.REDIS_URI)
 
 client.on('connect', () => {
   console.log('> Redis connected.')

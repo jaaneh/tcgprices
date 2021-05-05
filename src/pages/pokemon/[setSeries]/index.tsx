@@ -13,7 +13,6 @@ import { createURL } from '@utils/helpers'
 import { ICustomPokemonSet, IBreadcrumbItem } from '@interfaces'
 
 const PokemonSetName = ({ sets }: { sets: ICustomPokemonSet[] }) => {
-  console.log(sets)
   const breadcrumbs: IBreadcrumbItem[] = [
     {
       href: '/pokemon',

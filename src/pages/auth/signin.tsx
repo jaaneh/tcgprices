@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useRef, FormEvent, useState, useEffect } from 'react'
-import { signIn, getCsrfToken, getSession, CtxOrReq } from 'next-auth/client'
+import { signIn, getCsrfToken, getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
 import { useRouter } from 'next/router'
 import {
