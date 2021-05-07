@@ -20,7 +20,7 @@ const UserSchema: Schema = new Schema(
     images: {
       profile_picture: {
         type: String,
-        default: '/images/blank-person.jp',
+        default: '/images/blank-person.jpg',
         required: [true, 'Missing profile_picture']
       }
     }

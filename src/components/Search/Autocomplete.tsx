@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 import { Highlight, connectAutoComplete } from 'react-instantsearch-dom'
 import AutoSuggest from 'react-autosuggest'
 import {
@@ -26,7 +25,6 @@ interface IAutoComplete {
 }
 
 const AutoComplete = (props: IAutoComplete) => {
-  const router = useRouter()
   const [value, setValue] = useState(props.currentRefinement)
   const { hits, onSuggestionSelected } = props
 
@@ -93,7 +91,7 @@ const AutoComplete = (props: IAutoComplete) => {
   )
 
   const inputProps = {
-    placeholder: 'Search cards..',
+    placeholder: 'Search sets..',
     onChange,
     value
   }

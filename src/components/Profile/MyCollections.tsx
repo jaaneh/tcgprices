@@ -75,7 +75,7 @@ const MyCollections: React.FC<Props> = ({ collections }) => {
           collections.map((collection: ICardCollectionModel, i) => (
             <Fragment key={i}>
               <NextChakraLink
-                href={`/collection/${collection.collection_id}`}
+                href={`/collections/${collection.collection_id}`}
                 noUnderline
                 _focus={{ boxShadow: 'none' }}
                 aria-label={`${collection.name}`}

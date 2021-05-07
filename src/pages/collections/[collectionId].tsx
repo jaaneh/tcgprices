@@ -12,7 +12,7 @@ import {
 import Layout from '@components/Layout'
 import { ICardCollectionCard } from '@interfaces'
 
-const CardCollectionPage = ({ collection }) => {
+const SingleCardCollectionPage = ({ collection }) => {
   return (
     <Layout>
       <Container maxW='7xl' mt={8}>
@@ -35,7 +35,7 @@ const CardCollectionPage = ({ collection }) => {
   )
 }
 
-export default CardCollectionPage
+export default SingleCardCollectionPage
 
 export const getServerSideProps: GetServerSideProps = async ({
   query,
@@ -63,7 +63,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     return {
       props: {},
       redirect: {
-        destination: '/',
+        destination: '/collections',
         permanent: false
       }
     }

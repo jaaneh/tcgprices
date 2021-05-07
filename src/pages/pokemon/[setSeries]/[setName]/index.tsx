@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import {
   chakra,
   Container,
@@ -28,7 +27,7 @@ import {
   IPokemonSetPageContent
 } from '@interfaces'
 import { getSetIdsByPaths } from '@utils/paths'
-import { cleanName, createURL } from '@utils/helpers'
+import { createURL } from '@utils/helpers'
 
 import { VscTriangleDown, VscTriangleUp } from 'react-icons/vsc'
 
@@ -36,8 +35,6 @@ const PokemonSingleSetPage = ({
   displayName,
   cards
 }: IPokemonSetPageContent) => {
-  const router = useRouter()
-
   const data = useMemo(() => cards, [])
 
   const columns = useMemo(
@@ -56,7 +53,16 @@ const PokemonSingleSetPage = ({
               width={29}
               height={43}
             />
-            <Text ml={3}>{value}</Text>
+            <NextChakraLink
+              key={original.id}
+              href={`/pokemon/${createURL([
+                original.set.series,
+                original.set.name,
+                original.number
+              ])}`}
+            >
+              <Text ml={3}>{value}</Text>
+            </NextChakraLink>
           </Flex>
         )
       },
@@ -101,9 +107,11 @@ const PokemonSingleSetPage = ({
             <NextChakraLink
               noUnderline
               key={original.id}
-              href={`/pokemon/${cleanName(original.set.series)}/${cleanName(
-                original.set.name
-              )}/${original.number}`}
+              href={createURL([
+                original.set.series,
+                original.set.name,
+                original.number
+              ])}
             >
               <Button>View</Button>
             </NextChakraLink>
@@ -173,20 +181,7 @@ const PokemonSingleSetPage = ({
             {rows.map(row => {
               prepareRow(row)
               return (
-                <Tr
-                  {...row.getRowProps()}
-                  _hover={{
-                    cursor: 'pointer'
-                  }}
-                  onClick={() => {
-                    const { set, number } = row.original
-                    router.push(
-                      `/pokemon/${cleanName(set.series)}/${cleanName(
-                        set.name
-                      )}/${number}`
-                    )
-                  }}
-                >
+                <Tr {...row.getRowProps()}>
                   {row.cells.map(cell => (
                     <Td
                       {...cell.getCellProps([

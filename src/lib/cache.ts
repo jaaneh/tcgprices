@@ -1,20 +1,12 @@
 import * as redis from 'redis'
 
-// const client = redis.createClient(process.env.REDIS_URI)
-// export default client
+let client: redis.RedisClient
 
-// client.on('error', e => console.log(e))
-
-// export function getRedisClient() {
-//   if (client) {
-//     client.on('error', e => console.log(e))
-//     return client
-//   }
-//   client.quit()
-//   return redis.createClient(process.env.REDIS_URI)
-// }
-
-const client = redis.createClient(process.env.REDIS_URI)
+if (process.env.NODE_ENV === 'production') {
+  client = redis.createClient(process.env.REDIS_URI)
+} else {
+  client = redis.createClient()
+}
 
 client.on('connect', () => {
   console.log('> Redis connected.')

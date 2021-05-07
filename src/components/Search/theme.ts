@@ -1,4 +1,8 @@
 export default {
+  container: {
+    marginLeft: '1rem',
+    width: '100%'
+  },
   input: {
     borderColor: '#222c3c'
   },

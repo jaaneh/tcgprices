@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import { Box, Text, Container, Flex, Button } from '@chakra-ui/react'
+import { Box, Text, Container, Flex, Button, useToast } from '@chakra-ui/react'
 import { getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
 
@@ -20,6 +20,7 @@ const PokemonSingleCardPage = ({
   card: IPokemonCard
 }) => {
   const router = useRouter()
+  const toast = useToast()
 
   const saveCard = async () => {
     const data = {
@@ -45,7 +46,21 @@ const PokemonSingleCardPage = ({
       body: JSON.stringify(data)
     })
     const json = await res.json()
-    console.log(json)
+    if (json.success === true) {
+      toast({
+        title: 'Success',
+        description: `${json.data?.message || 'Saved card.'}`,
+        status: 'success',
+        isClosable: true
+      })
+    } else {
+      toast({
+        title: 'Something went wrong',
+        description: 'Could not save card.',
+        status: 'error',
+        isClosable: true
+      })
+    }
   }
 
   const renderPrices = prices => {

@@ -54,13 +54,15 @@ const theme = extendTheme({
   },
   components: {
     Button: {
+      baseStyle: {
+        borderRadius: 'md',
+        fontWeight: '500'
+      },
       variants: {
         //@ts-ignore
         'brand-blue': {
           bg: 'brand.blue',
           color: 'brand.white',
-          borderRadius: 'xl',
-          fontWeight: '500',
           _hover: {
             bg: 'brand.blue-light'
           },
@@ -76,8 +78,6 @@ const theme = extendTheme({
           color: 'brand.white',
           borderWidth: '1px',
           borderColor: 'brand.white-20',
-          borderRadius: 'xl',
-          fontWeight: '500',
           _hover: {
             bg: 'brand.white-05'
           },
@@ -91,8 +91,6 @@ const theme = extendTheme({
         'brand-blue-ghost': {
           bg: 'transparent',
           color: 'brand.white',
-          borderRadius: 'xl',
-          fontWeight: '500',
           _hover: {
             bg: '#ffffff15'
           },
