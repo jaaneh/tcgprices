@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { IResponse, PokemonSetIds } from '@interfaces'
+import { IResponse } from '@interfaces'
 import { getPokemonSeries } from '@utils/PokemonAPI'
 
 import cache from '@lib/cache'

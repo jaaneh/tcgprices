@@ -9,7 +9,7 @@ const searchClient = algoliasearch(
 )
 
 const SearchPage = () => {
-  const [query, setQuery] = useState('')
+  const [_, setQuery] = useState('')
 
   const onSuggestionSelected = (_, { suggestion }) => setQuery(suggestion.name)
 
