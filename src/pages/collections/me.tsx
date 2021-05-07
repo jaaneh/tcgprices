@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { getSession } from 'next-auth/client'
 import { Session } from 'next-auth'
-import { v4 as uuidv4 } from 'uuid'
+// import { v4 as uuidv4 } from 'uuid'
 
 import {
   Flex,
@@ -49,22 +49,22 @@ const CollectionMotionBox = ({ createNew = false, children }) => (
 )
 
 const MyCollectionsPage: React.FC<Props> = ({ collections, session }) => {
-  const createNewCollection = async () => {
-    const data = {
-      owner_id: session?.account.uuid,
-      collection_id: uuidv4()
-    }
+  // const createNewCollection = async () => {
+  //   const data = {
+  //     owner_id: session?.account.uuid,
+  //     collection_id: uuidv4()
+  //   }
 
-    const res = await fetch('/api/v1/collections', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    const json = await res.json()
-    console.log(json)
-  }
+  //   const res = await fetch('/api/v1/collections', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(data)
+  //   })
+  //   const json = await res.json()
+  //   console.log(json)
+  // }
 
   return (
     <Layout>
