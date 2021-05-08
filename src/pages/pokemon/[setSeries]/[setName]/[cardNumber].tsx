@@ -186,7 +186,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   const hostname = process.env.NEXTAUTH_URL || 'http://localhost:3000'
   const options = { headers: { cookie: req.headers.cookie } }
   const response = await fetch(
-    `${hostname}/api/v1/pokemon/card/${setId}/${cardNumber}`,
+    `${hostname}/api/v1/pokemon/cards/${setId}/${cardNumber}`,
     options
   )
   const json = await response.json()

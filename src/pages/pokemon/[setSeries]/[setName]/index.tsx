@@ -107,11 +107,11 @@ const PokemonSingleSetPage = ({
             <NextChakraLink
               noUnderline
               key={original.id}
-              href={createURL([
+              href={`/pokemon/${createURL([
                 original.set.series,
                 original.set.name,
                 original.number
-              ])}
+              ])}`}
             >
               <Button>View</Button>
             </NextChakraLink>

@@ -1,14 +1,15 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import * as redis from 'redis'
 
 import { IResponse, PokemonSetIds } from '@interfaces'
 import { getPokemonSetCards } from '@utils/PokemonAPI'
 
-import cache from '@lib/cache'
+// import cache from '@lib/cache'
 import { invalidRoute } from '@utils/API-responses'
 
 export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
   if (req.method === 'GET') {
-    // const cache = getRedisClient()
+    const cache = redis.createClient(process.env.REDIS_URI)
 
     try {
       const { setId } = req.query
@@ -41,7 +42,9 @@ export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
         }
       })
     } finally {
-      // cache.quit()
+      cache.quit(err => {
+        if (err) throw new Error(err.message)
+      })
     }
   }
 

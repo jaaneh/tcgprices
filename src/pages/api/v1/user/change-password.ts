@@ -34,7 +34,6 @@ export default async (req: NextApiRequest, res: NextApiResponse<IResponse>) => {
 
       if (validate.error) {
         const error = validate.error.details[0]
-        console.log(error.message)
         return unprocessableEntity(res, error)
       }
 

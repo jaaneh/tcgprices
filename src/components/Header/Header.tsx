@@ -76,7 +76,7 @@ const Header = () => {
       shadow='md'
     >
       <Flex alignItems='center' justifyContent='space-between' mx='auto'>
-        <Flex alignItems='center' mr={4}>
+        <Flex alignItems='center'>
           <Box display={{ base: 'inline-flex', md: 'none' }} zIndex='50'>
             <VStack
               pos='absolute'

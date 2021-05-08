@@ -18,11 +18,7 @@ const UserSchema: Schema = new Schema(
       required: [true, 'Missing account role']
     },
     images: {
-      profile_picture: {
-        type: String,
-        default: '/images/blank-person.jpg',
-        required: [true, 'Missing profile_picture']
-      }
+      profile_picture: { type: String, default: '' }
     }
   },
   { versionKey: false }
