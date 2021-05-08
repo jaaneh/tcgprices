@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 
-const BASE_URL: string = process.env.NEXTAUTH_URL || 'http://localhost:3000'
+const BASE_URL: string =
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
 
 const instance = axios.create({
   baseURL: BASE_URL,
@@ -10,6 +11,6 @@ const instance = axios.create({
   }
 })
 
-export function fetcher(url: string): Promise<AxiosResponse> {
-  return instance.get(url).then(res => res.data)
+export async function fetcher(url: string): Promise<AxiosResponse> {
+  return await instance.get(url).then(res => res.data)
 }
