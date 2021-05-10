@@ -1,1 +1,1 @@
-export { NextChakraLink } from './NextChakraLink'
+export { default } from './NextChakraLink'

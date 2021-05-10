@@ -5,8 +5,8 @@ import Layout from '@components/Layout'
 const YuGiOhSetsPage = () => {
   return (
     <Layout>
-      <Container maxW='7xl'>
-        <Heading textAlign='left' mb={8} as='h1' size='lg'>
+      <Container maxW='7xl' mt={8}>
+        <Heading textAlign='left' as='h1' size='lg' mb={8}>
           Yu-Gi-Oh!
         </Heading>
         <Text>Soon.. 👀</Text>

@@ -4,7 +4,7 @@ import {
   BreadcrumbLink,
   Text
 } from '@chakra-ui/react'
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 
 import { IBreadcrumbItem } from '@interfaces'
 

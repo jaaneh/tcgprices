@@ -13,7 +13,7 @@ export type NextChakraLinkProps = PropsWithChildren<
     }
 >
 
-export const NextChakraLink = ({
+const NextChakraLink = ({
   href,
   as,
   replace,
@@ -45,3 +45,5 @@ export const NextChakraLink = ({
     </NextLink>
   )
 }
+
+export default NextChakraLink

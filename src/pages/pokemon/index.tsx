@@ -3,7 +3,7 @@ import { SimpleGrid, Container, Heading } from '@chakra-ui/react'
 
 import Layout from '@components/Layout'
 import PokemonHomeSeriesView from '@components/Pokemon/Home'
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 import Breadcrumb from '@components/Breadcrumb'
 
 import { IBreadcrumbItem, ICustomPokemonSet } from '@interfaces'

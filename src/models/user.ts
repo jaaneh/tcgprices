@@ -8,14 +8,14 @@ const UserSchema: Schema = new Schema(
     uuid: { type: String, required: [true, 'Missing uuid'] },
     username: { type: String, required: [true, 'Missing username'] },
     email: { type: String, required: [true, 'Missing email'] },
+    emailVerified: { type: Boolean, default: false },
     password: { type: String, required: [true, 'Missing password'] },
     signed_up: { type: Number, required: [true, 'Missing signed_up'] },
     last_signin: { type: Number, required: [true, 'Missing last_signin'] },
     permissions: {
       type: String,
       enum: Object.values(AccountRoles),
-      default: AccountRoles.USER,
-      required: [true, 'Missing account role']
+      default: AccountRoles.USER
     },
     images: {
       profile_picture: { type: String, default: '' }

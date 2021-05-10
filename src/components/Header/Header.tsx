@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import { signOut, useSession } from 'next-auth/client'
 
 import {
@@ -18,7 +19,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Heading,
+  // Heading,
   Icon,
   Portal
 } from '@chakra-ui/react'
@@ -26,7 +27,7 @@ import {
 import { HiOutlineChevronDown } from 'react-icons/hi'
 import { AiOutlineMenu } from 'react-icons/ai'
 
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 
 import SearchBar from '@components/Search'
 
@@ -126,10 +127,26 @@ const Header = () => {
               </Box>
             </VStack>
           </Box>
-          <NextChakraLink href='/' display='flex' alignItems='center'>
-            <Heading as='h1' size='lg' letterSpacing={'-.1rem'} tabIndex={1}>
+          <NextChakraLink
+            href='/'
+            display='flex'
+            alignItems='center'
+            noUnderline
+            _focus={{ boxShadow: 'none' }}
+          >
+            {/* <Heading as='h1' size='lg' letterSpacing={'-.1rem'} tabIndex={1}>
               TCGprices
-            </Heading>
+            </Heading> */}
+            <Image
+              src='/images/brand/logo.png'
+              width='40'
+              height='40'
+              layout='fixed'
+              priority={true}
+            />
+            <Text fontSize='lg' fontWeight='500' display={['none', 'block']}>
+              TCGprices
+            </Text>
             <VisuallyHidden>TCGprices</VisuallyHidden>
           </NextChakraLink>
           <SearchBar />

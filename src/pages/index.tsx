@@ -3,7 +3,7 @@ import { SimpleGrid, Box, Text, Container } from '@chakra-ui/react'
 
 import Layout from '@components/Layout'
 import MotionBox from '@components/MotionBox'
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 import { IGameSelection } from '@interfaces'
 
 const gameSelection: IGameSelection[] = [
@@ -51,7 +51,7 @@ const Index = () => {
                 <Image
                   src={game.images.cover}
                   alt={`${game.name} cover`}
-                  loading='eager'
+                  priority={true}
                   layout='responsive'
                   objectFit='cover'
                   width={225}

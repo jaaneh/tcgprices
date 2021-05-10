@@ -30,7 +30,7 @@ import {
 import Layout from '@components/Layout'
 import MotionBox from '@components/MotionBox'
 import { MyCollectionsSkeleton } from '@components/Skeletons'
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 
 import { ICardCollectionModel } from '@interfaces'
 import { fetcher } from '@utils/SWR'

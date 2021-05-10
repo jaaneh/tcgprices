@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Box, Text, useColorMode } from '@chakra-ui/react'
 
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 import MotionBox from '@components/MotionBox'
 import { ICustomPokemonSet } from '@interfaces'
 
@@ -48,7 +48,7 @@ const PokemonHomeView = ({ sets }) => {
                   layout='responsive'
                   width={12}
                   height={12}
-                  loading='eager'
+                  priority={true}
                 />
               </Box>
             </Box>

@@ -5,7 +5,7 @@ import { SimpleGrid, Box, Text, Container, Heading } from '@chakra-ui/react'
 import Layout from '@components/Layout'
 import MotionBox from '@components/MotionBox'
 import Breadcrumb from '@components/Breadcrumb'
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 
 import { getSetSeries, getSetSeriesPaths } from '@utils/paths'
 import { createURL } from '@utils/helpers'
@@ -70,7 +70,7 @@ const PokemonSetName = ({ sets }: { sets: ICustomPokemonSet[] }) => {
                       layout='responsive'
                       width={100}
                       height={40}
-                      loading='eager'
+                      priority={true}
                     />
                   </Box>
                 </Box>

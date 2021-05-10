@@ -72,6 +72,10 @@ export const CARD_PRINTING = {
   '1stEditionHolofoil': '1st Ed. Holofoil'
 }
 
+export const YUP_SIGNUP_ERRORS = {
+  '"email" must be a valid email': 'Must be a valid email'
+}
+
 export const SIGNUP_ERRORS = {
   'ValidationError: "username" is not allowed to be empty':
     "Username can't be blank",

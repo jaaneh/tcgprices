@@ -14,7 +14,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { createURL } from '@utils/helpers'
 
 import theme from './theme'
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 
 interface IAutoComplete {
   hits: object[]

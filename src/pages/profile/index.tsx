@@ -21,7 +21,7 @@ const UserProfilePage: React.FC = () => {
         <Tabs defaultIndex={0} borderBottomColor='transparent' minW='100%'>
           <TabList>
             <Tab py={4} m={0} _focus={{ boxShadow: 'none' }}>
-              Settings
+              Account Settings
             </Tab>
           </TabList>
 

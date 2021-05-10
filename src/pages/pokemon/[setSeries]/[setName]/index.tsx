@@ -18,7 +18,7 @@ import {
 import { useTable, useSortBy } from 'react-table'
 
 import Layout from '@components/Layout'
-import { NextChakraLink } from '@components/NextChakraLink'
+import NextChakraLink from '@components/NextChakraLink'
 import Breadcrumb from '@components/Breadcrumb'
 
 import {
@@ -48,7 +48,7 @@ const PokemonSingleSetPage = ({
             <Image
               src={original.images.small}
               alt={original.name}
-              loading='eager'
+              priority={true}
               layout='fixed'
               width={29}
               height={43}
